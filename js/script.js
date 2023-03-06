@@ -193,7 +193,11 @@ startGameButton.addEventListener("click", function(){
                     console.log(selected);
                  
 
-                };
+                } else {
+                    // se la cella è già stata cliccata
+                    alert("hai già cliccato questa cella!");
+                
+                }
                 // se la lunghezza delle selezionate è uguale al numero totale di cell e- la lunghezza ddall'array bombe
                 if (selected.length == (totalCells - bombe.length)) {
 
