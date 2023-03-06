@@ -83,8 +83,29 @@ let startGameButton = document.getElementById("start_game");
 // - memorizzo l'elemento griglia
 let gridEl = document.getElementById("grid_container");
 
-
+// memorizzo elemento html livello
 let selectLevel = document.getElementById("levels");
+
+// memorizzo l'elemento punteggio
+let finalScore = document.getElementById("punteggio");
+
+
+// memorizzo un'array vuota delle bombe
+const bombe = [];
+
+// - memorizzo un'array vuota delle celle selezionate.
+const selected = [];
+
+// - memorizzo una variabile che indichi il punteggio.
+let score = 0;
+
+
+
+
+
+
+
+
 
 // - memorizzo una variabile cella che valga 100.
 let totalCells;
