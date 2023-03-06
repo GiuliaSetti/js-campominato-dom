@@ -70,10 +70,9 @@ al CLICK della cella:
 
 - memorizzo un bottone che appaia solo al termine della partita, e che ricarichi il documento (reload?).
 
+
 */
 
-
-// console.log("prova sa sa");
 
 
 // - memorizzo l'elemento bottone
@@ -104,11 +103,12 @@ const bombe = [];
 // - memorizzo un'array vuota delle celle selezionate.
 const selected = [];
 
-// - memorizzo una variabile cella che valga 100.
+// - memorizzo una variabile totale delle celle
 let totalCells;
 
 // memorizzo una variabile per il numero di colonne
 let colNumber;
+
 
 
 // al click del bottone
@@ -120,20 +120,22 @@ startGameButton.addEventListener("click", function(){
 
 
     // livelli
+
+    // difficile
     if(selectLevelEl == "Hard"){
 
         totalCells = 49;
 
         colNumber = 7;
         
-        
+    // medio
     } else if (selectLevelEl == "Medium"){
    
         totalCells = 81;
      
         colNumber = 9;
             
-
+    // facile
     } else {
 
         totalCells = 100;
@@ -158,6 +160,7 @@ startGameButton.addEventListener("click", function(){
 
         let cell = squareGenerator(i);
 
+        // var celle clickate
         let clickedCell = (i);
 
         // al click della cella
@@ -178,8 +181,11 @@ startGameButton.addEventListener("click", function(){
                 finalScore.innerHTML = ("Il tuo punteggio è di " + selected.length);
 
                 replayButton.style.display = "block";
+                
 
-  
+                alert("Hai perso!");
+
+
             } else {
 
             // altrimenti assegno la classe normale
@@ -198,13 +204,13 @@ startGameButton.addEventListener("click", function(){
                     alert("hai già cliccato questa cella!");
                 
                 }
-                // se la lunghezza delle selezionate è uguale al numero totale di cell e- la lunghezza ddall'array bombe
+                // se la lunghezza delle selezionate è uguale al numero totale di celle - la lunghezza dell'array bombe
                 if (selected.length == (totalCells - bombe.length)) {
 
-                // stampo in pagina
+                    // stampo in pagina
                     finalScore.innerHTML = "Complimenti, hai evitato tutte le bombe."
 
-                    // stampo in pagina il punteggio e mostro il pulsante di reload 
+                    // mostro il pulsante di reload 
                     replayButton.style.display = "block";
                 }
     
@@ -212,8 +218,11 @@ startGameButton.addEventListener("click", function(){
     
             };
 
-        })
-    
+           
+
+        });
+
+       
     }
 
    
@@ -232,7 +241,7 @@ replayButton.addEventListener("click", function(){
 
 // FUNZIONI_________________________________
 
-// creo la funzione per creare i quadrati
+// creo la funzione per le celle
 
 function squareGenerator(testo){
 
@@ -259,6 +268,7 @@ function squareGenerator(testo){
 
 function bombsCreator(array, totalCells){
 
+    // variabile contatore
     let contatore;
     
     contatore = 0;
@@ -278,7 +288,6 @@ function bombsCreator(array, totalCells){
 }
 
 
-
 // creo la funzione per un numero random
 
 function createRandomNumber(min, max){
@@ -287,3 +296,5 @@ function createRandomNumber(min, max){
 
     return random;
 }
+
+

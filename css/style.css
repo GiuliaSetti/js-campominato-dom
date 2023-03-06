@@ -113,6 +113,20 @@ button{
 }
 
 
+#not_clickable{
+    display: flex;
+    flex-flow: row wrap;
+
+    margin: 0 auto;
+    background-color: white;
+
+    font-weight: bold;
+
+    color: rgb(8, 8, 168);
+}
+
+
+
 
 /* singola cella */
 
@@ -137,6 +151,7 @@ button{
     background-color: rgb(56, 46, 96);
     color: rgb(170, 105, 105);
 }
+
 
 
 
