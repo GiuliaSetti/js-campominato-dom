@@ -40,8 +40,6 @@ parte 2
 
 - memorizzo un'array vuota di bombe
 
-- memorizzo una variabile che indichi il punteggio.
-
 - memorizzo una variabile vuota delle celle selezionate.
 
 - memorizzo l'elemento html del punteggio
@@ -70,6 +68,7 @@ al CLICK della cella:
         ? SE il numero delle celle è uguale alla somm adelle celle meno la lunghezza dell'array
             ° stampo che "hai vinto"
 
+- memorizzo un bottone che appaia solo al termine della partita, e che ricarichi il documento (reload?).
 
 */
 
@@ -89,23 +88,21 @@ let selectLevel = document.getElementById("levels");
 // memorizzo l'elemento punteggio
 let finalScore = document.getElementById("punteggio");
 
+// memorizzo un bottone che ricarichi il documento e appaia a fine gioco
+let replayButton = document.getElementById("restart");
+
+
+// nascondo il bottone
+replayButton.style.display = "none";
+
+
+
 
 // memorizzo un'array vuota delle bombe
 const bombe = [];
 
 // - memorizzo un'array vuota delle celle selezionate.
 const selected = [];
-
-// - memorizzo una variabile che indichi il punteggio.
-let score = 0;
-
-
-
-
-
-
-
-
 
 // - memorizzo una variabile cella che valga 100.
 let totalCells;
@@ -114,7 +111,7 @@ let totalCells;
 let colNumber;
 
 
-
+// al click del bottone
 startGameButton.addEventListener("click", function(){
 
     gridEl.innerHTML = "";
@@ -122,7 +119,7 @@ startGameButton.addEventListener("click", function(){
     let selectLevelEl = selectLevel.value;
 
 
-
+    // livelli
     if(selectLevelEl == "Hard"){
 
         totalCells = 49;
@@ -155,25 +152,77 @@ startGameButton.addEventListener("click", function(){
     console.log(bombe);
 
 
-            
+    // celle        
     for(let i = 1; i <= totalCells; i++){
     
 
         let cell = squareGenerator(i);
 
+        let clickedCell = (i);
 
+        // al click della cella
         cell.addEventListener("click", function(){
 
-            cell.classList.toggle("normal");
+            // se il numero della cella è incluso in bombe
+            if (bombe.includes(i)) {
+
+                // attribuisco alla cella la classe bomba
+
+                cell.classList.add('bomb');
+                
+                // test
+                console.log("bomba");
+                
+
+                // stampo in pagina il punteggio e mostro il pulsante di reload 
+                finalScore.innerHTML = ("Il tuo punteggio è di " + selected.length);
+
+                replayButton.style.display = "block";
+
+  
+            } else {
+
+            // altrimenti assegno la classe normale
+                cell.classList.add('normal');
+                
+                // se la cella cliccata non è inclusa tra quelle selezionate
+                if (!selected.includes(clickedCell))  {
+                    // la pusho tra le selezionate
+                    selected.push(clickedCell);
+
+                    console.log(selected);
+                 
+
+                };
+                // se la lunghezza delle selezionate è uguale al numero totale di cell e- la lunghezza ddall'array bombe
+                if (selected.length == (totalCells - bombe.length)) {
+
+                // stampo in pagina
+                    finalScore.innerHTML = "Complimenti, hai evitato tutte le bombe."
+
+                    // stampo in pagina il punteggio e mostro il pulsante di reload 
+                    replayButton.style.display = "block";
+                }
+    
+                
+    
+            };
 
         })
     
     }
 
-
-
    
 });
+
+
+// se clicco il pulsante replay
+replayButton.addEventListener("click", function(){
+    document. location. reload();
+})
+
+
+
 
 
 

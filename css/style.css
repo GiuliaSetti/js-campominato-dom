@@ -8,9 +8,22 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* generali */
+
+button{
+    padding: 10px 20px;
+
+    border-radius: 30px;
+    border: none;
+
+    color: white;
+    font-weight: bold;
+
+    background-color:  rgb(146, 146, 247) ;
+}
+
 
 /* navbar */
-
 
 
 .navbar{
@@ -54,18 +67,6 @@
     width: 30px;
 }
 
-.navbar .nav_right button{
-    padding: 10px 20px;
-
-    border-radius: 30px;
-    border: none;
-
-    color: white;
-    font-weight: bold;
-
-    background-color:  rgb(146, 146, 247) ;
-}
-
 
 /* main */
 
@@ -80,6 +81,21 @@
     margin: 0 auto;
 
     padding-top: 8rem;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+#punteggio{
+    text-align: center;
+    
+    color: rgb(146, 146, 247);
+
+    font-weight: bold;
+
+    font-size: 1.8rem;
 }
 
 /* griglia */
@@ -96,19 +112,7 @@
     color: rgb(146, 146, 247);
 }
 
-/* .width100{
-    width: calc(50px * 10);
-}
 
-.width81{
-    
-    width: calc(50px * 9);
-}
-
-.width49{
-    
-    width: calc(50px * 7);
-} */
 
 /* singola cella */
 
