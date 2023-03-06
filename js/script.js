@@ -1,10 +1,80 @@
-// Consegna:
-// Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe. Attenzione: nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
-// In seguito l'utente clicca su una cella: se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina. Altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
-// La partita termina quando il giocatore clicca su una bomba o quando raggiunge il numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
+// Consegna
+// L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
+// Ogni cella ha un numero progressivo, da 1 a 100.
+// Ci saranno quindi 10 caselle per ognuna delle 10 righe.
+// Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
 
 
+/* 
+- memorizzo l'elemento bottone
+
+- memorizzo l'elemento griglia
+
+- memorizzo l'elemento per scegliere il livello di difficoltà.
+
+- memorizzo una variabile per il totale di celle.
+- memorizzo una variabile per il numero di colonne.
+
+- creo una funzione che mi generi l'elemento (div) con classe .square. e lo appenda al contenitore griglia.
+
+al CLICK del bottone:
+
+
+? SE il livello scelto è DIFFICILE:
+    ° il numero totale di celle sarà 49.
+    ° le colonne saranno 7.
+
+: ALTRIMENTI SE il livello scelto è MEDIO
+    ° il numero totale di celle sarà 81
+    ° le colonne saranno 9.
+:ALTRIMENTI 
+    ° il numero totale di celle sarà 100
+    ° le colonne 10.
+
+- creo una griglia di celle in base alla funzione precedentemente creata.
+
+- stilizzo la griglia in modo che la sua larghezza sia data dall moltiplicazione della larghezza del quadrato per il numero di colonne.
+
+parte 2
+
+
+- memorizzo un'array vuota di bombe
+
+- memorizzo una variabile che indichi il punteggio.
+
+- memorizzo una variabile vuota delle celle selezionate.
+
+- memorizzo l'elemento html del punteggio
+
+- genero una funzione che generi un numero random.
+
+- genero una funzione che generi le bombe con totale di 16 massimo.
+
+- genero le bombe. 
+
+- genero una variabile all'interno del ciclo for dei quadrati, che indichi le celle cliccate.
+
+al CLICK della cella: 
+    ? SE il numero della bomba è incluso nelle cliccate 
+        ° assegno la classe bomba
+        ° stampo il punteggio e "hai perso"
+
+    : ALTRIMENTI 
+        ? SE la cella cliccata non è inclusa in quelle già selezionate (array)
+            ° la pusho.
+            ° aumento il punteggio.
+
+        : ALTRIMENTI 
+            ° stampo che la cella è già stata cliccata.
+
+        ? SE il numero delle celle è uguale alla somm adelle celle meno la lunghezza dell'array
+            ° stampo che "hai vinto"
+
+
+*/
+
+
+// console.log("prova sa sa");
 
 
 // - memorizzo l'elemento bottone
@@ -29,6 +99,7 @@ startGameButton.addEventListener("click", function(){
     gridEl.innerHTML = "";
 
     let selectLevelEl = selectLevel.value;
+
 
 
     if(selectLevelEl == "Hard"){
@@ -65,7 +136,7 @@ startGameButton.addEventListener("click", function(){
 
         cell.addEventListener("click", function(){
 
-            cell.classList.toggle("lightpurple");
+            cell.classList.toggle("normal");
 
         })
     

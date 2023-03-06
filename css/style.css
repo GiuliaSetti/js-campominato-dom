@@ -117,16 +117,24 @@
     width: 50px;
     height: 50px;
 
-    border: 1px solid rgb(146, 146, 247);
+    border: 1px solid rgb(103, 103, 226);
+
+    padding: 3px;
 }
 
 /* background cella al click */
 
-.lightpurple{
+.normal{
     background-color: rgb(146, 146, 247);
     color: white;
-
 }
+
+.bomb{
+    background-color: rgb(56, 46, 96);
+    color: rgb(170, 105, 105);
+}
+
+
 
 footer{
     padding: 10px;
