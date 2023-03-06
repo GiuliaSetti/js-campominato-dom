@@ -148,6 +148,13 @@ startGameButton.addEventListener("click", function(){
     gridEl.style.width = `calc(50px * ${colNumber})`;
 
 
+    // BOMBE___
+    bombsCreator(bombe, totalCells);
+
+    // test
+    console.log(bombe);
+
+
             
     for(let i = 1; i <= totalCells; i++){
     
@@ -204,7 +211,7 @@ function bombsCreator(array, totalCells){
     contatore = 0;
     
     while(array.length < 16){
-            let newBomb = randomNumber(1, totalCells);
+            let newBomb = createRandomNumber(1, totalCells);
     
             if(!array.includes(newBomb)){
                 array.push(newBomb);
