@@ -170,7 +170,9 @@ startGameButton.addEventListener("click", function(){
 
 
 
-// creo la funzione
+// FUNZIONI_________________________________
+
+// creo la funzione per creare i quadrati
 
 function squareGenerator(testo){
 
@@ -189,4 +191,39 @@ function squareGenerator(testo){
 
     return newEl
 
+}
+
+// PARTE 2____
+
+// creo la funzione che generi le bombe in base al numero random precedente
+
+function bombsCreator(array, totalCells){
+
+    let contatore;
+    
+    contatore = 0;
+    
+    while(array.length < 16){
+            let newBomb = randomNumber(1, totalCells);
+    
+            if(!array.includes(newBomb)){
+                array.push(newBomb);
+            }
+    
+        contatore++;
+    
+    }
+    
+
+}
+
+
+
+// creo la funzione per un numero random
+
+function createRandomNumber(min, max){
+
+    let random = Math.floor(Math.random()* (max - min + 1) + min);
+
+    return random;
 }
