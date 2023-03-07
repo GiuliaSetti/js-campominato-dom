@@ -113,18 +113,6 @@ button{
 }
 
 
-#not_clickable{
-    display: flex;
-    flex-flow: row wrap;
-
-    margin: 0 auto;
-    background-color: white;
-
-    font-weight: bold;
-
-    color: rgb(8, 8, 168);
-}
-
 
 
 

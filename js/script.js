@@ -70,6 +70,8 @@ al CLICK della cella:
 
 - memorizzo un bottone che appaia solo al termine della partita, e che ricarichi il documento (reload?).
 
+- memorizzo una varaibile game over
+
 
 */
 
@@ -109,7 +111,7 @@ let totalCells;
 // memorizzo una variabile per il numero di colonne
 let colNumber;
 
-
+let gameOver = false;
 
 // al click del bottone
 startGameButton.addEventListener("click", function(){
@@ -167,56 +169,60 @@ startGameButton.addEventListener("click", function(){
         cell.addEventListener("click", function(){
 
             // se il numero della cella è incluso in bombe
-            if (bombe.includes(i)) {
+            if(!gameOver){
+                if (bombe.includes(i)) {
 
-                // attribuisco alla cella la classe bomba
-
-                cell.classList.add('bomb');
-                
-                // test
-                console.log("bomba");
-                
-
-                // stampo in pagina il punteggio e mostro il pulsante di reload 
-                finalScore.innerHTML = ("Il tuo punteggio è di " + selected.length);
-
-                replayButton.style.display = "block";
-                
-
-                alert("Hai perso!");
-
-
-            } else {
-
-            // altrimenti assegno la classe normale
-                cell.classList.add('normal');
-                
-                // se la cella cliccata non è inclusa tra quelle selezionate
-                if (!selected.includes(clickedCell))  {
-                    // la pusho tra le selezionate
-                    selected.push(clickedCell);
-
-                    console.log(selected);
-                 
-
-                } else {
-                    // se la cella è già stata cliccata
-                    alert("hai già cliccato questa cella!");
-                
-                }
-                // se la lunghezza delle selezionate è uguale al numero totale di celle - la lunghezza dell'array bombe
-                if (selected.length == (totalCells - bombe.length)) {
-
-                    // stampo in pagina
-                    finalScore.innerHTML = "Complimenti, hai evitato tutte le bombe."
-
-                    // mostro il pulsante di reload 
+                    // attribuisco alla cella la classe bomba
+    
+                    cell.classList.add('bomb');
+                    
+                    // test
+                    console.log("bomba");
+                    
+    
+                    // stampo in pagina il punteggio e mostro il pulsante di reload 
+                    finalScore.innerHTML = ("Hai perso. Il tuo punteggio è di " + selected.length);
+    
                     replayButton.style.display = "block";
-                }
+                   
+
+                    gameOver = true;
     
-                
     
-            };
+                } else {
+    
+                // altrimenti assegno la classe normale
+                    cell.classList.add('normal');
+                    
+                    // se la cella cliccata non è inclusa tra quelle selezionate
+                    if (!selected.includes(clickedCell))  {
+                        // la pusho tra le selezionate
+                        selected.push(clickedCell);
+    
+                        console.log(selected);
+                     
+    
+                    } else {
+                        // se la cella è già stata cliccata
+                        alert("hai già cliccato questa cella!");
+                    
+                    }
+                    // se la lunghezza delle selezionate è uguale al numero totale di celle - la lunghezza dell'array bombe
+                    if (selected.length == (totalCells - bombe.length)) {
+    
+                        // stampo in pagina
+                        finalScore.innerHTML = "Complimenti, hai evitato tutte le bombe."
+    
+                        // mostro il pulsante di reload 
+                        replayButton.style.display = "block";
+
+                           gameOver = true;
+                    }
+        
+                    
+        
+                };
+            }
 
            
 
